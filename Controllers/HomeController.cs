@@ -28,9 +28,17 @@ namespace PartyInvites.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Register()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register(GuestResponse response)
+        {   
+            //TODO: Store guest response
+            return View("ThankYou");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
