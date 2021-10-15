@@ -40,7 +40,7 @@ namespace PartyInvites.Controllers
             //Guardar a resposta
             Repository.AddResponse(response);
 
-            return View("ThankYou");
+            return View("ThankYou", response);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

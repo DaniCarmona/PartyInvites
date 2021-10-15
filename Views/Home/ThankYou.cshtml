@@ -1,9 +1,22 @@
-﻿
+﻿@model GuestResponse
+
 @{
     ViewData["Title"] = "ThankYou";
 }
 
-<h1>ThankYou for registering</h1>
+<h1>Thank You @Model.Name, for registering</h1>
 
-<p>We will send you the details of the party</p>
-
+<p>
+    @if (Model.WillAttend == null)
+    {
+        @:Thank you for your answer. When you decide if you can come to the party, give me a call.
+  }
+    else if (Model.WillAttend == true)
+    {
+        @:Thank you for your answer. We will cconatct you soon with the detais of the party.
+    }
+    else
+    {//Model.WillAttend == false
+        @:Sorry to hear that you can't make it, but thanks for leting us know.
+    }
+</p>
