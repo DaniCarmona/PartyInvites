@@ -37,10 +37,16 @@ namespace PartyInvites.Controllers
         [HttpPost]
         public IActionResult Register(GuestResponse response)
         {
-            //Guardar a resposta
-            Repository.AddResponse(response);
-
-            return View("ThankYou", response);
+            if (ModelState.IsValid) {
+                //Guardar a resposta
+                Repository.AddResponse(response);
+                return View("ThankYou", response);
+            }
+            else 
+            { 
+                //there are avlidations error
+                return View();
+            }
         }
 
         public IActionResult GuestList()
