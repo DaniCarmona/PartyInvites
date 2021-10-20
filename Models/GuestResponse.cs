@@ -9,13 +9,15 @@ namespace PartyInvites.Models
     public class GuestResponse
     {
         [Required(ErrorMessage ="Please enter your name")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Name should have at least 3 character and no more than 100")]
         public string Name { get; set; }
         
         [Required(ErrorMessage = "Please enter your phone number")]
+        [Phone(ErrorMessage ="Invalid phone number")]
         public string Phone { get; set; }
         
-        [Required(ErrorMessage = "Please enter your Email address")]
-        [EmailAddress]
+        [Required(ErrorMessage = "Please enter your email address")]
+        [EmailAddress(ErrorMessage ="Invalid email address")]
         public string Email { get; set; }
         
         public bool? WillAttend { get; set; }
